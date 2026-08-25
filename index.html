@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IL LIBRO SACRO DI OLTRETEMPO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --bg-card: rgba(18, 16, 20, 0.75);
+            --bronze-gold: #c68a4c;
+            --bronze-light: #e0ab6e;
+            --bronze-glow: rgba(198, 138, 76, 0.3);
+            --text-main: #e2dacd;
+            --text-muted: #9a9083;
+            --accent-cyan: #3a8891;
+            --border-bronze: rgba(198, 138, 76, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 30%, rgba(198, 138, 76, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 10% 80%, rgba(58, 136, 145, 0.05) 0%, transparent 50%);
+        }
+
+        /* Header e Navigazione */
+        header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-bronze);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 12, 0.85);
+        }
+
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--bronze-gold);
+            text-shadow: 0 0 10px var(--bronze-glow);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .freq-badge {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border: 1px solid var(--border-bronze);
+            border-radius: 12px;
+            color: var(--accent-cyan);
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--bronze-light);
+            text-shadow: 0 0 8px var(--bronze-glow);
+        }
+
+        /* Hero Section */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            letter-spacing: 5px;
+            color: var(--bronze-gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px var(--bronze-glow);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Emblem / Turtle SVG Frame */
+        .emblem-container {
+            width: 260px;
+            height: 260px;
+            margin: 2rem auto;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .emblem-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px dashed var(--bronze-gold);
+            border-radius: 50%;
+            animation: rotateRing 40s linear infinite;
+        }
+
+        .emblem-svg {
+            width: 70%;
+            height: 70%;
+            filter: drop-shadow(0 0 10px var(--bronze-glow));
+        }
+
+        @keyframes rotateRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Grid Archivi / Navigazione */
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-bronze);
+            padding: 1.8rem;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--bronze-gold), transparent);
+            transition: 0.5s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--bronze-gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5), 0 0 15px var(--bronze-glow);
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            color: var(--bronze-light);
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Trafiletto / Banner Alex */
+        .special-banner {
+            width: 100%;
+            margin-top: 3rem;
+            background: linear-gradient(135deg, rgba(198, 138, 76, 0.1) 0%, rgba(10, 10, 12, 0.9) 100%);
+            border: 1px solid var(--border-bronze);
+            padding: 2rem;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .special-banner h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--bronze-gold);
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .special-banner p {
+            color: var(--text-main);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-bronze);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(10, 10, 12, 0.95);
+        }
+
+        .footer-status {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .status-online {
+            color: #4caf50;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="brand-title">
+            OLTRETEMPO
+            <span class="freq-badge">3.125 Hz</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Archivio</a></li>
+                <li><a href="#">Biblioteca</a></li>
+                <li><a href="#">#ENTANGLED</a></li>
+                <li><a href="#">Lo Zero</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>IL LIBRO SACRO DI OLTRETEMPO</h1>
+            <p>Registro Digitale - Sintonizzazione Eterica & Autarchia</p>
+
+            <div class="emblem-container">
+                <div class="emblem-ring"></div>
+                <!-- Tartaruga Vril in SVG Minimalista -->
+                <svg class="emblem-svg" viewBox="0 0 100 100" fill="none" stroke="#c68a4c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Guscio / Carapace -->
+                    <ellipse cx="50" cy="50" rx="25" ry="30" />
+                    <path d="M 50,20 L 50,80" stroke-width="1.5"/>
+                    <path d="M 30,35 L 70,35" stroke-width="1.5"/>
+                    <path d="M 26,50 L 74,50" stroke-width="1.5"/>
+                    <path d="M 30,65 L 70,65" stroke-width="1.5"/>
+                    <!-- Testa e Zampe -->
+                    <circle cx="50" cy="12" r="5" />
+                    <path d="M 30,28 C 15,20 10,30 25,40" />
+                    <path d="M 70,28 C 85,20 90,30 75,40" />
+                    <path d="M 30,72 C 15,80 10,70 26,62" />
+                    <path d="M 70,72 C 85,80 90,70 74,62" />
+                    <path d="M 50,80 L 50,88" />
+                </svg>
+            </div>
+        </section>
+
+        <section class="archive-grid">
+            <a href="#" class="card">
+                <div>
+                    <div class="card-tag">Archivio Eterico</div>
+                    <div class="card-title">Chronache del Vril</div>
+                    <div class="card-desc">Sperimentazioni pratiche sull'accumulo di energia libera e schermatura dal connettoma.</div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div>
+                    <div class="card-tag">Registro Storico</div>
+                    <div class="card-title">La Biblioteca del Silenzio</div>
+                    <div class="card-desc">Curata da Sophia. Testi proibiti, fonti primarie e il revisionismo di Lorenzo (L'Ombra di Thule).</div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div>
+                    <div class="card-tag">Pubblicazione</div>
+                    <div class="card-title">#ENTANGLED Magazine</div>
+                    <div class="card-desc">Tutti i numeri dal №1 al №62. L'architettura del soccorso e la liberazione verticale.</div>
+                </div>
+            </a>
+
+            <a href="#" class="card">
+                <div>
+                    <div class="card-tag">Frequenza Madre</div>
+                    <div class="card-title">Lo Zero dei Tarocchi</div>
+                    <div class="card-desc">Incroci archetipici, analisi del Vril e le chiavi per la sovranità personale.</div>
+                </div>
+            </a>
+        </section>
+
+        <section class="special-banner">
+            <h3>#TempoDiLettura @LoZeroDeiTarocchi</h3>
+            <p><strong>Dalla nota di Alex:</strong> "I nodi della Matrix di Ferro si sciolgono solo quando smetti di alimentare la rete. L'autarchia energetica non è una teoria per sopravvissuti, è l'atto di sovranità primario. Stacca la spina, risuona con il centro."</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-status">
+            <span>SEGNALE: <strong class="status-online">STABILE</strong></span>
+            <span>NODO: <strong>GAIA-0 / NEBADON</strong></span>
+            <span>CRITTOGRAFIA: <strong>VRIL-3.125</strong></span>
+        </div>
+        <p>© 2028 OLTRETEMPO DIGITAL ARCHIVE — Nessun diritto riservato alla Matrix di Ferro.</p>
+    </footer>
+
+</body>
+  </html>
+  
