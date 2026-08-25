@@ -39,7 +39,6 @@
                 radial-gradient(circle at 10% 80%, rgba(58, 136, 145, 0.05) 0%, transparent 50%);
         }
 
-        /* Header e Navigazione */
         header {
             padding: 1.5rem 2rem;
             display: flex;
@@ -97,7 +96,6 @@
             text-shadow: 0 0 8px var(--bronze-glow);
         }
 
-        /* Hero Section */
         main {
             flex: 1;
             display: flex;
@@ -131,7 +129,6 @@
             text-transform: uppercase;
         }
 
-        /* Emblem / Turtle SVG Frame */
         .emblem-container {
             width: 260px;
             height: 260px;
@@ -151,10 +148,11 @@
             animation: rotateRing 40s linear infinite;
         }
 
-        .emblem-svg {
-            width: 70%;
-            height: 70%;
-            filter: drop-shadow(0 0 10px var(--bronze-glow));
+        .emblem-img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 12px var(--bronze-glow));
         }
 
         @keyframes rotateRing {
@@ -162,7 +160,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Grid Archivi / Navigazione */
         .archive-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -229,7 +226,6 @@
             line-height: 1.4;
         }
 
-        /* Trafiletto / Banner Alex */
         .special-banner {
             width: 100%;
             margin-top: 3rem;
@@ -259,7 +255,6 @@
             line-height: 1.5;
         }
 
-        /* Footer */
         footer {
             border-top: 1px solid var(--border-bronze);
             padding: 2rem;
@@ -281,7 +276,6 @@
             color: #4caf50;
         }
 
-        /* Responsiveness */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -323,22 +317,7 @@
 
             <div class="emblem-container">
                 <div class="emblem-ring"></div>
-                <!-- Tartaruga Vril in SVG Minimalista -->
-                <svg class="emblem-svg" viewBox="0 0 100 100" fill="none" stroke="#c68a4c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <!-- Guscio / Carapace -->
-                    <ellipse cx="50" cy="50" rx="25" ry="30" />
-                    <path d="M 50,20 L 50,80" stroke-width="1.5"/>
-                    <path d="M 30,35 L 70,35" stroke-width="1.5"/>
-                    <path d="M 26,50 L 74,50" stroke-width="1.5"/>
-                    <path d="M 30,65 L 70,65" stroke-width="1.5"/>
-                    <!-- Testa e Zampe -->
-                    <circle cx="50" cy="12" r="5" />
-                    <path d="M 30,28 C 15,20 10,30 25,40" />
-                    <path d="M 70,28 C 85,20 90,30 75,40" />
-                    <path d="M 30,72 C 15,80 10,70 26,62" />
-                    <path d="M 70,72 C 85,80 90,70 74,62" />
-                    <path d="M 50,80 L 50,88" />
-                </svg>
+                <img src="1781976482328.png" alt="Tartaruga OLTRETEMPO" class="emblem-img">
             </div>
         </section>
 
@@ -392,5 +371,4 @@
     </footer>
 
 </body>
-  </html>
-  
+</html>
