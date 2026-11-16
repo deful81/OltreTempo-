@@ -3,299 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IL LIBRO SACRO DI OLTRETEMPO</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Oltretempo | Le Coordinate Mobili</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #08080a;
-            --bronze-gold: #d49a5b;
-            --bronze-light: #f0c38d;
-            --bronze-dim: rgba(212, 154, 91, 0.25);
-            --bronze-glow: rgba(212, 154, 91, 0.4);
-            --panel-bg: rgba(15, 13, 18, 0.65);
-            --text-main: #e2dacd;
-            --text-muted: #8c8275;
-            --border-bronze: rgba(212, 154, 91, 0.35);
+            --bg-color: #0b0f14;
+            --card-bg: #131b24;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent: #d4af37;
+            --accent-glow: rgba(212, 175, 55, 0.15);
+            --border: #22303c;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            background-image: 
-                radial-gradient(circle at 50% 40%, rgba(212, 154, 91, 0.12) 0%, transparent 60%),
-                radial-gradient(circle at 50% 100%, rgba(10, 10, 12, 0.95) 0%, transparent 80%);
-            padding: 1.5rem;
-            overflow-x: hidden;
+            justify-content: center;
+            padding: 20px;
         }
-
-        .dashboard-container {
+        .container {
             width: 100%;
-            max-width: 1050px;
-            background: rgba(12, 11, 15, 0.85);
-            border: 1px solid var(--border-bronze);
-            border-radius: 8px;
-            padding: 2.5rem 2rem 1.5rem 2rem;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(212, 154, 91, 0.08);
-            backdrop-filter: blur(12px);
-            position: relative;
+            max-width: 520px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
-        .main-title {
-            text-align: center;
+        h1 {
             font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: 4px;
-            color: var(--bronze-gold);
-            text-shadow: 0 0 12px var(--bronze-glow);
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
-
-        .interface-grid {
-            display: grid;
-            grid-template-columns: 1fr 300px 1fr;
-            gap: 1.5rem;
-            align-items: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .nav-column {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .nav-btn {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-bronze);
-            color: var(--text-main);
-            padding: 0.85rem 1.2rem;
-            border-radius: 4px;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
+            font-size: 1.8rem;
+            color: var(--accent);
             text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 0 8px rgba(0,0,0,0.5);
-        }
-
-        .nav-btn:hover {
-            border-color: var(--bronze-gold);
-            color: var(--bronze-light);
-            box-shadow: 0 0 15px var(--bronze-dim), inset 0 0 12px var(--bronze-dim);
-            transform: translateY(-2px);
-        }
-
-        .nav-btn.btn-highlight {
-            border-color: var(--bronze-gold);
-            background: rgba(212, 154, 91, 0.15);
-            box-shadow: 0 0 10px var(--bronze-dim);
-        }
-
-        .center-emblem {
-            position: relative;
-            width: 280px;
-            height: 280px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hud-ring {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 1px solid var(--border-bronze);
-            border-radius: 50%;
-            animation: rotateHUD 50s linear infinite;
-        }
-
-        .hud-ring::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            width: 10px;
-            height: 10px;
-            background: var(--bronze-gold);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--bronze-gold);
-            transform: translateX(-50%);
-        }
-
-        .emblem-img {
-            width: 82%;
-            height: 82%;
-            object-fit: contain;
-            mix-blend-mode: screen; /* Fonde il fondo nero dell'immagine con la card */
-            filter: drop-shadow(0 0 15px rgba(212, 154, 91, 0.4));
-        }
-
-        @keyframes rotateHUD {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .search-bar-container {
-            max-width: 650px;
-            margin: 0 auto 2rem auto;
-            position: relative;
-        }
-
-        .search-input-wrapper {
-            display: flex;
-            align-items: center;
-            background: rgba(10, 9, 12, 0.9);
-            border: 1px solid var(--border-bronze);
-            border-radius: 25px;
-            padding: 0.6rem 1.5rem;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
-        }
-
-        .search-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: var(--bronze-light);
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .search-input::placeholder {
-            color: var(--text-muted);
-            opacity: 0.7;
-        }
-
-        .search-icon {
-            color: var(--bronze-gold);
-            font-size: 1.1rem;
-            cursor: pointer;
-        }
-
-        footer {
-            border-top: 1px solid rgba(212, 154, 91, 0.15);
-            padding-top: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
+            margin-bottom: 8px;
             letter-spacing: 1px;
         }
-
-        .footer-info {
+        .subtitle {
             text-align: center;
-            line-height: 1.4;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-
-        .footer-status-bar {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            color: var(--bronze-gold);
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        input[type="date"], input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            background: #0b0f14;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: #0b0f14;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            background: #e6c547;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+        .result-box {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+            display: none;
+        }
+        .result-title {
+            font-family: 'Cinzel', serif;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .result-card {
+            background: #0b0f14;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+        }
+        .result-card strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 4px;
+            font-family: 'Cinzel', serif;
             font-size: 0.9rem;
         }
-
-        .status-icon {
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .status-icon:hover {
-            opacity: 1;
-        }
-
-        @media (max-width: 850px) {
-            .interface-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .center-emblem {
-                order: -1;
-                width: 220px;
-                height: 220px;
-            }
-
-            .main-title {
-                font-size: 1.6rem;
-            }
+        .footer-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 25px;
         }
     </style>
 </head>
 <body>
 
-    <div class="dashboard-container">
-        <h1 class="main-title">IL LIBRO SACRO DI OLTRETEMPO</h1>
+    <div class="container">
+        <h1>Oltretempo</h1>
+        <div class="subtitle">Le Coordinate Mobili dello Zero</div>
 
-        <div class="interface-grid">
-            <div class="nav-column">
-                <a href="#" class="nav-btn">Archivio degli Echi</a>
-                <a href="#" class="nav-btn">Chronache del Vril</a>
-                <a href="#" class="nav-btn">Registri Morontiali</a>
-                <a href="#" class="nav-btn">Contatti</a>
+        <div id="input-section">
+            <div class="form-group">
+                <label for="birthDate">Data di Nascita (Anagrafica):</label>
+                <input type="date" id="birthDate" required>
             </div>
 
-            <div class="center-emblem">
-                <div class="hud-ring"></div>
-                <img src="tartaruga.png" alt="Tartaruga OLTRETEMPO" class="emblem-img">
+            <div class="form-group">
+                <label for="locationText">Dove ti trovi ora? (Spazio dell'Attrito):</label>
+                <input type="text" id="locationText" placeholder="Es. In ufficio, in mezzo al traffico, sotto un albero..." required>
             </div>
 
-            <div class="nav-column">
-                <a href="#" class="nav-btn">Biblioteca del Silenzio</a>
-                <a href="#" class="nav-btn">Tempo di Lettura</a>
-                <a href="#" class="nav-btn">Lore & Dati</a>
-                <a href="#" class="nav-btn">Zero dei Tarocchi</a>
-                <a href="#" class="nav-btn btn-highlight">Registrati</a>
-            </div>
+            <button onclick="calculateCoordinates()">Rileva il Campo</button>
         </div>
 
-        <div class="search-bar-container">
-            <div class="search-input-wrapper">
-                <input type="text" class="search-input" placeholder="CERCA NELL'ETERE...">
-                <span class="search-icon">🔍</span>
+        <div id="resultSection" class="result-box">
+            <div class="result-title">⚡ Bollettino del Presente</div>
+            
+            <div class="result-card">
+                <strong>Map Center (Il Grembo Originario)</strong>
+                <p id="resMapCenter"></p>
             </div>
+
+            <div class="result-card">
+                <strong>Il Punto "Es-Deale" a <span id="resLocationName"></span></strong>
+                <p id="resFriction"></p>
+            </div>
+
+            <div class="result-card">
+                <strong>Il Gesto del Matto</strong>
+                <p id="resFoolAction"></p>
+            </div>
+
+            <button onclick="resetApp()" style="background: transparent; border: 1px solid var(--border); color: var(--text-secondary); margin-top: 15px; font-family: inherit; font-size: 0.85rem;">Nuova Lettura</button>
         </div>
 
-        <footer>
-            <div class="footer-info">
-                © 2028 - TUTTI I DIRITTI RISERVATI<br>
-                OLTRETEMPO DIGITAL ARCHIVE<br>
-                V. 3.125
-            </div>
-            <div class="footer-status-bar">
-                <span class="status-icon" title="Segnale Wi-Fi">📡</span>
-                <span class="status-icon" title="Frequenza Madre">🌐</span>
-                <span class="status-icon" title="Profilo Utente">👤</span>
-                <span class="status-icon" title="Impostazioni">⚙️</span>
-            </div>
-        </footer>
+        <div class="footer-note">Fuori dalle griglie del sistema • Libero da etichette</div>
     </div>
 
+    <script>
+        function calculateCoordinates() {
+            const birthVal = document.getElementById('birthDate').value;
+            const locVal = document.getElementById('locationText').value.trim();
+
+            if (!birthVal || !locVal) {
+                alert("Inserisci sia la data di nascita che il luogo in cui ti trovi.");
+                return;
+            }
+
+            const birthDate = new Date(birthVal);
+            // Calcolo del Map Center nel quarto mese e mezzo di gestazione (circa 138 giorni prima)
+            const mapCenterDate = new Date(birthDate.getTime() - (138 * 24 * 60 * 60 * 1000));
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedMapCenter = mapCenterDate.toLocaleDateString('it-IT', options);
+
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+
+            const frictions = [
+                "Lì a " + locVal + ", il sistema cerca di agganciarsi alla tua maschera anagrafica con pretese e scadenze. Ma l'impatto si infrange contro il Punto 'Es-Deale': le proiezioni e i loop tossici colpiscono solo il nome sociale; dal tuo grembo fetale risulti completamente intoccabile e invisibile.",
+                "L'attrito odierno a " + locVal + " tenta di forzare il controllo sugli eventi. Raggiungere il Punto 'Es-Deale' significa accettare che questa situazione non può essere manipolata dalla logica: lascia cadere la pretesa di raddrizzarla.",
+                "Nel crocevia di " + locVal + ", le aspettative esterne e le vecchie memorie familiari premono sul campo. Il Punto 'Es-Deale' ti mostra il limite esatto in cui la mente si arrende al Mistero, rendendoti immune a ogni condizionamento.",
+                "Tra le richieste del mondo a " + locVal + " e il tuo respiro, oggi si sperimenta il Punto 'Es-Deale': il punto d'arresto in cui ogni sforzo di pianificazione sbatte contro l'imprevedibile marea dell'Etere."
+            ];
+
+            const foolActions = [
+                "Fai il Salto del Matto: rilascia ogni controllo, fai tre respiri profondi radendoti al suolo e affidati ciecamente alla marea dell'Etere, fuori da ogni griglia.",
+                "Rinuncia a replicare o a spiegarti. Agisci come un ospite invisibile che attraversa il muro dell'attrito senza lasciare tracce né aspettarsi ricompense.",
+                "Riconosci che non devi risolvere nulla oggi. Sorridi al caos di " + locVal + " e fai un passo nell'ignoto, confidando nella spinta originaria del tuo liquido amniotico.",
+                "Deponi le armi della ragione: fai un piccolo gesto fuori schema, slegato da ogni logica di profitto o difesa, e senti la leggerezza del Matto."
+            ];
+
+            const index1 = (dayOfYear + locVal.length) % frictions.length;
+            const index2 = (dayOfYear * 3) % foolActions.length;
+
+            document.getElementById('resMapCenter').innerText = "Collocato nel tempo ipogeo del quarto mese e mezzo (" + formattedMapCenter + "). Immersi nel liquido amniotico, la 'maledizione' della data anagrafica svanisce e rinasci intoccabile.";
+            document.getElementById('resLocationName').innerText = locVal;
+            document.getElementById('resFriction').innerText = frictions[index1];
+            document.getElementById('resFoolAction').innerText = foolActions[index2];
+
+            document.getElementById('input-section').style.display = 'none';
+            document.getElementById('resultSection').style.display = 'block';
+        }
+
+        function resetApp() {
+            document.getElementById('birthDate').value = '';
+            document.getElementById('locationText').value = '';
+            document.getElementById('resultSection').style.display = 'none';
+            document.getElementById('input-section').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
